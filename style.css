@@ -1,15 +1,15 @@
 :root {
-    --bg: #06121f;
-    --bg-soft: #0d1b2a;
-    --panel: rgba(15, 23, 42, 0.9);
-    --panel-strong: #101e31;
-    --panel-alt: #122235;
-    --primary: #67e8f9;
-    --primary-strong: #38bdf8;
-    --text: #e2e8f0;
-    --muted: #9fb2c8;
-    --line: rgba(148, 163, 184, 0.14);
-    --shadow: 0 30px 60px rgba(2, 6, 23, 0.45);
+    --bg: #100b1c;
+    --bg-soft: #19122a;
+    --panel: rgba(29, 21, 45, 0.92);
+    --panel-strong: #211735;
+    --panel-alt: #2a1e40;
+    --primary: #c4a7ff;
+    --primary-strong: #a978ff;
+    --text: #f1ecfa;
+    --muted: #b4a9c9;
+    --line: rgba(205, 181, 255, 0.16);
+    --shadow: 0 28px 60px rgba(5, 2, 12, 0.45);
 }
 
 * {
@@ -953,4 +953,129 @@ footer p:first-child {
     .btn {
         margin: 5px 2px;
     }
+}
+
+/* Purple theme accents */
+body {
+    background:
+        radial-gradient(circle at top left, rgba(169, 120, 255, 0.09), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(124, 77, 214, 0.1), transparent 30%),
+        var(--bg);
+}
+
+.header {
+    background: rgba(16, 11, 28, 0.82);
+}
+
+.hero {
+    background:
+        radial-gradient(circle at 80% 28%, rgba(169, 120, 255, 0.2), transparent 28%),
+        radial-gradient(circle at 15% 30%, rgba(124, 77, 214, 0.14), transparent 26%);
+}
+
+.nav-links a {
+    color: #e4ddf0;
+}
+
+.hero-content h2 {
+    color: #e9e1f6;
+}
+
+.primary-btn {
+    color: #170e25;
+}
+
+.primary-btn:hover {
+    box-shadow: 0 15px 30px rgba(169, 120, 255, 0.24);
+}
+
+.secondary-btn {
+    border-color: rgba(169, 120, 255, 0.58);
+    background: rgba(169, 120, 255, 0.05);
+}
+
+.secondary-btn:hover {
+    background: rgba(169, 120, 255, 0.14);
+}
+
+.profile-circle {
+    border-color: rgba(196, 167, 255, 0.62);
+    background: linear-gradient(160deg, #261b3c, #171126);
+    box-shadow: 0 0 42px rgba(169, 120, 255, 0.2), inset 0 0 30px rgba(169, 120, 255, 0.1);
+}
+
+.profile-circle::before {
+    border-color: rgba(196, 167, 255, 0.28);
+}
+
+.about-section {
+    background:
+        radial-gradient(circle at 80% 28%, rgba(169, 120, 255, 0.17), transparent 28%),
+        radial-gradient(circle at 15% 30%, rgba(124, 77, 214, 0.12), transparent 26%),
+        var(--bg);
+}
+
+.skill-card:hover,
+.project-card:hover {
+    border-color: rgba(169, 120, 255, 0.72);
+}
+
+.skill-card:hover {
+    box-shadow: 0 16px 36px rgba(124, 77, 214, 0.16);
+}
+
+.project-card:hover {
+    box-shadow: 0 16px 38px rgba(124, 77, 214, 0.16);
+}
+
+.skill-icon,
+.contact-icon {
+    color: var(--primary);
+}
+
+.education-icon,
+.contact-card {
+    border-color: rgba(169, 120, 255, 0.24);
+}
+
+.education-icon {
+    background: rgba(169, 120, 255, 0.09);
+}
+
+.tech-tags span {
+    border-color: rgba(169, 120, 255, 0.2);
+    background: rgba(169, 120, 255, 0.08);
+}
+
+.contact-card:hover {
+    border-color: rgba(169, 120, 255, 0.68);
+    box-shadow: 0 16px 38px rgba(124, 77, 214, 0.15);
+}
+
+.whatsapp-btn:hover {
+    background: var(--primary);
+}
+
+footer {
+    background: #0b0712;
+}
+
+@media (max-width: 850px) {
+    .nav-links {
+        background: rgba(18, 12, 31, 0.98);
+    }
+}
+
+.skill-card,
+.project-card,
+.education-card {
+    background: linear-gradient(180deg, var(--panel-strong), var(--panel));
+}
+
+.project-image {
+    background: linear-gradient(135deg, var(--panel-alt), var(--bg-soft));
+}
+
+.contact-card {
+    background: linear-gradient(145deg, rgba(37, 27, 57, 0.96), rgba(25, 18, 42, 0.92));
 }
