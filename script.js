@@ -99,3 +99,32 @@ links.forEach(function (link) {
     });
 
 });
+
+
+/* =========================
+   CUSTOM SCROLL INDICATOR
+========================= */
+
+const scrollTrack = document.querySelector(".scroll-track");
+const scrollThumb = document.querySelector(".scroll-thumb");
+
+function updateScrollIndicator() {
+    if (!scrollTrack || !scrollThumb) return;
+
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+    if (maxScroll <= 0) {
+        scrollThumb.style.top = "0px";
+        return;
+    }
+
+    const positionRatio = window.scrollY / maxScroll;
+    const maxTravel = scrollTrack.clientHeight - scrollThumb.offsetHeight;
+    const topPosition = positionRatio * maxTravel;
+
+    scrollThumb.style.top = `${topPosition}px`;
+}
+
+window.addEventListener("scroll", updateScrollIndicator);
+window.addEventListener("resize", updateScrollIndicator);
+updateScrollIndicator();

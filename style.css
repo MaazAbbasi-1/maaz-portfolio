@@ -46,6 +46,104 @@ ul {
     list-style: none;
 }
 
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(86, 255, 252, 0.9) transparent;
+}
+
+body {
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(102, 244, 255, 0.9) transparent;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(100, 252, 255, 0.9), rgba(66, 223, 255, 0.8));
+    border-radius: 999px;
+    border: 2px solid rgba(8, 21, 29, 0.9);
+    box-shadow: 0 0 18px rgba(94, 248, 255, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.scroll-surface {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: min(72vh, 620px);
+    width: 44px;
+    pointer-events: none;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-track {
+    position: relative;
+    width: 6px;
+    height: 100%;
+    border-radius: 999px;
+    background: rgba(120, 168, 194, 0.18);
+    box-shadow: inset 0 0 12px rgba(117, 189, 231, 0.18);
+    border: 1px solid rgba(125, 212, 252, 0.22);
+}
+
+.scroll-thumb {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 80px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(84, 255, 245, 0.95), rgba(26, 200, 255, 0.9));
+    box-shadow: 0 0 18px rgba(99, 252, 255, 0.9), 0 0 28px rgba(99, 252, 255, 0.35);
+    border: 1px solid rgba(197, 249, 255, 0.9);
+}
+
+.scroll-label {
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    transform: translateX(-50%) rotate(180deg);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 9px;
+    letter-spacing: 0.38rem;
+    color: rgba(116, 250, 255, 0.9);
+    text-shadow: 0 0 10px rgba(82, 242, 255, 0.8);
+    font-weight: 700;
+}
+
+@media (max-width: 680px) {
+    .scroll-surface {
+        right: 10px;
+        height: min(60vh, 420px);
+        width: 26px;
+    }
+
+    .scroll-track {
+        width: 4px;
+    }
+
+    .scroll-thumb {
+        width: 10px;
+        height: 60px;
+    }
+
+    .scroll-label {
+        font-size: 7px;
+        letter-spacing: 0.25rem;
+    }
+}
+
 /* =========================
    NAVBAR
 ========================= */
@@ -255,9 +353,9 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(103, 232, 249, 0.5);
-    background: linear-gradient(160deg, rgba(14, 31, 48, 1), rgba(11, 23, 38, 0.9));
-    box-shadow: 0 0 40px rgba(103, 232, 249, 0.18), inset 0 0 30px rgba(103, 232, 249, 0.08);
+    border: 1px solid rgba(192, 132, 252, 0.7);
+    background: linear-gradient(160deg, rgba(41, 18, 57, 1), rgba(21, 11, 32, 0.95));
+    box-shadow: 0 0 40px rgba(192, 132, 252, 0.25), inset 0 0 30px rgba(168, 85, 247, 0.15);
     position: relative;
 }
 
@@ -266,7 +364,7 @@ ul {
     position: absolute;
     inset: 18px;
     border-radius: 50%;
-    border: 1px solid rgba(103, 232, 249, 0.2);
+    border: 1px solid rgba(216, 180, 254, 0.28);
 }
 
 .profile-photo {
@@ -359,10 +457,21 @@ ul {
     height: 300px;
     margin: 0;
     overflow: hidden;
-    border: 3px solid rgba(255, 255, 255, 0.72);
+    border: 3px solid rgba(216, 180, 254, 0.9);
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 12px 28px rgba(4, 12, 39, 0.28);
+    background: linear-gradient(160deg, rgba(61, 23, 91, 1), rgba(28, 16, 38, 0.95));
+    box-shadow: 0 12px 28px rgba(168, 85, 247, 0.2), inset 0 0 24px rgba(192, 132, 252, 0.18);
+    position: relative;
+}
+
+.about-photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.18), transparent 68%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .about-photo img {
@@ -370,7 +479,11 @@ ul {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 24%;
+    object-position: center 18%;
+    filter: saturate(1.08) contrast(1.05) brightness(1.03);
+    transform: scale(1.08);
+    position: relative;
+    z-index: 0;
 }
 
 .about-content {
