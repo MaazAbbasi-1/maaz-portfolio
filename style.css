@@ -945,6 +945,24 @@ footer p:first-child {
     margin-bottom: 6px;
 }
 
+footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+footer .footer-instagram-icon {
+    width: 18px;
+    height: 18px;
+}
+
+footer a:hover {
+    color: var(--primary-strong);
+}
+
 /* =========================
    MOBILE MENU
 ========================= */
